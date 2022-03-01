@@ -13,6 +13,7 @@ button_div.addEventListener('mouseover', () => {
         button_div.style.border = "3px solid #CC99CC"
         button_div.style.borderRadius = "8px"
         button_div.style.backgroundColor = '#660066'
+        button_div.style.boxShadow = 'none'
     }
 })
 
@@ -21,10 +22,11 @@ button_div.addEventListener('mouseout', () => {
     if (window.innerWidth > 600){
     button.forEach(element => {
         element.style.color = 'black';
-        element.style.letterSpacing = '0px'
+        element.style.letterSpacing = '0px';
     })
-    button[1].style.fontSize = '2.5vw'
-    button_div.style.border = "3px solid black"
-    button_div.style.backgroundColor = 'transparent'
-    }
+    button[1].style.fontSize = '2.5vw';
+    button_div.style.border = "3px solid black";
+    button_div.style.backgroundColor = 'transparent';
+    button_div.style.boxShadow = '2.5px -2.5px 2.5px #c8c8c8';
+}
 })

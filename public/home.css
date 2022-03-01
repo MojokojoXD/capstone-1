@@ -101,6 +101,7 @@ a{
     border-radius: 8px;
     transition-property: height,background-color;
     transition-duration: 0.5s;
+    box-shadow: 2.5px -2.5px 2.5px #c8c8c8;
 }
 
 #tagline-button > button {
@@ -132,6 +133,7 @@ i{
         color: white;
         margin-left: 0px;
         margin-top: 15vh;
+        text-shadow: 2px -2px 4px #666666;
     }
 
     .main-body{
@@ -146,9 +148,11 @@ i{
         display: block;
         height: 100px;
         width: 100px;
-        margin: 5px auto;
+        margin: 10px auto;
         background-color: transparent;
-        border: white 3px solid;
+        box-shadow: 2px -2px 4px #666666;
+        border-left: 1px inset #CC99CC;
+        border-bottom: 1px outset #CC99CC;
         border-radius: 8px;
         transition-property: height,background-color;
         transition-duration: 0.5s;
