@@ -74,10 +74,10 @@ a{
 }
 
 #tagline{
-    width: 40%;
+    width: 50%;
     margin: 10px;
     text-align: center;
-    font-size: calc(12px + 1.3vw);
+    font-size: calc(16px + 1.3vw);
 }
 
 
@@ -131,6 +131,7 @@ i{
 @media all and (max-width: 600px){
     .main-body > div{
         color: white;
+        letter-spacing: 1px;
         margin-left: 0px;
         margin-top: 15vh;
         text-shadow: 2px -2px 4px #666666;
