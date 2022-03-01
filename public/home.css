@@ -150,11 +150,11 @@ i{
         height: 100px;
         width: 100px;
         margin: 10px auto;
-        background-image: linear-gradient(#660066,#660066,#CC99CC);
+        background-image: linear-gradient(#660066,#660066,#660066,#CC99CC);
         box-shadow: 2px -2px 4px #666666;
         border-left: 1px inset #CC99CC;
         border-bottom: 1px outset #CC99CC;
-        border-radius: 8px;
+        border-radius: 10px;
         transition-property: height,background-color;
         transition-duration: 0.5s;
     }
