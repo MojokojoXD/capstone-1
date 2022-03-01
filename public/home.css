@@ -146,22 +146,23 @@ i{
     }
 
     .mobile-button{
-        display: block;
+        display: flex;
         height: 100px;
         width: 100px;
         margin: 10px auto;
-        background-image: linear-gradient(#660066,#660066,#660066,#CC99CC);
+        background-color: transparent;
+        /* background-image: linear-gradient(#660066,#660066,#660066,#CC99CC); */
         box-shadow: 2px -2px 4px #666666;
-        border-left: 1px inset #CC99CC;
+        border-left: 3px inset #CC99CC;
         border-bottom: 1px outset #CC99CC;
         border-radius: 10px;
         transition-property: height,background-color;
         transition-duration: 0.5s;
+        justify-content: center;
+        align-items: center;
     }
 
     .mobile-button > a{
-        height: inherit;
-        width: inherit;
         font-size: 16px;
         font-weight: 600;
         border: none;
@@ -171,8 +172,8 @@ i{
     }
 
     i{
-        color: white;
-        font-size: 50px;
+        color: #CC99CC;
+        font-size: 30px;
         padding: 5px;
     }
 }
