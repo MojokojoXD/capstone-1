@@ -150,13 +150,17 @@ main{
 
 .about-us{
     width: inherit;
-    background-color: #BDBDFF;
+    background-color: #CC99CC;
     height: inherit;
-    border-radius: 5px 5px 0 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .how-it-works{
-    
+    height: inherit;
+    width: 95%;
+    background-color: black;
+    margin: 0 2.5% 0 2.5%;
+    border-top: #CC99CC 1px solid;
 }
 @media all and (max-width: 600px){
     main {
