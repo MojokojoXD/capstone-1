@@ -12,11 +12,10 @@ a{
 
 body{
     height: 100vh;
-    min-height: 100%;
-    width: 100%;
+    /* min-height: 100%; */
     background-color: black;
-    background-image: url('https://www.freepik.com/free-vector/black-wavy-shapes-background_12628437.htm#page=6&query=monochrome%20background&position=0&from_view=search');
-    background-size: cover;
+    /* background-image: url('https://www.freepik.com/free-vector/black-wavy-shapes-background_12628437.htm#page=6&query=monochrome%20background&position=0&from_view=search');
+    background-size: cover; */
 }
 
 
@@ -78,10 +77,11 @@ body{
 }
 
 main{
+    display: flex;
     position: absolute;
     top: 10vh;
     height: 50vh;
-    width: 100%;
+    width: 100vw;
     background-color: white;
     background-image: url('https://www.freepik.com/free-vector/striped-pattern-background-simple-design-black-white-vector_19597412.htm#page=6&query=monochrome%20background&position=18&from_view=search');
     /* background-position: center; */
@@ -89,7 +89,18 @@ main{
     background-repeat: no-repeat;
     border-bottom: 2px solid black;
     z-index: 1;
+    justify-content: space-evenly;
 }
+
+
+.main-pic > img{
+    position: absolute;
+    height: 30vh;
+    width: inherit;
+    clip: shape;
+}
+
+
 
 
 
@@ -99,7 +110,6 @@ main{
     height: 60%;
     align-items: center;
     margin-left: 5vw;
-    width: 50%;
     margin: 1vw;
     font-size: calc(16px + .5vw);
     padding: 1vw;
@@ -148,13 +158,14 @@ main{
 
 .button-style{
     height: calc(50px + 4vw);
-    width: calc(55px + 8vw);
+    width: calc(65px + 8vw);
     margin: 15px auto;
     background-color:   transparent;
     border: 4px solid white;
     border-radius: 8px;
-    transition-property: height, background-color, width, border;
-    transition-duration: 0.5s;
+    transition: all 1s ease-in-out;
+    /* transition-property: height, background-color, width, border; */
+    /* transition-duration: 0.5s; */
     color: white;
     font-weight: bold;
 }
@@ -166,7 +177,7 @@ main{
 
 .button-style > p{
     text-align: center;
-    font-size: calc(12px );
+    font-size: calc(12px + 0.4vw);
     padding: 5px;
     width: fit-content;
     margin: 0 auto 0 auto;
