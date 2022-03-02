@@ -6,13 +6,17 @@
 
 a{
     text-decoration: none;
+    text-decoration-color: none;
+    color: white;
 }
 
 body{
     height: 100vh;
     min-height: 100%;
     width: 100%;
-    background-color: #FAF5F8;
+    background-color: black;
+    background-image: url('https://www.freepik.com/free-vector/black-wavy-shapes-background_12628437.htm#page=6&query=monochrome%20background&position=0&from_view=search');
+    background-size: cover;
 }
 
 
@@ -31,22 +35,24 @@ body{
     top: 0;
     display: flex;
     width: 100%;
-    height: fit-content;
+    height: 10vh;
     min-height: 40px;
     justify-content: space-around;
     align-items: center;
     color: white;
     background-color: black;
     z-index: 2;
-    border-bottom: 1px solid #CC99CC;
+    border-bottom: 2px solid #FC9D05;
 }
 
-.perma-logo > h1{
+.perma-logo > a{
     letter-spacing: 1.5px;
     font-size: calc(12px + 1.2em);
     font-weight: 500;
     padding: 10px;
+
 }
+
 
 .contact-us{
     border: none;
@@ -58,28 +64,30 @@ body{
     border-radius: 5px;
     padding: 5px;
     letter-spacing: 1px;
-    transition-property: background-color,color,letter-spacing,border;
+    transition-property: background-color,color,letter-spacing,border,padding;
     transition-duration: 0.5s;
 }
 
 .contact-us:hover{
-    background-color: #660066;
-    border: 2px solid #CC99CC;
-    color: white;
+    background-color: #FC9D05;
+    border: 2px solid #3B3B3B;
+    color: black;
     cursor: pointer;
     letter-spacing: 2.5px;
+    padding: 6px;
 }
 
 main{
     position: absolute;
-    top: 5vh;
+    top: 10vh;
     height: 50vh;
     width: 100%;
-    background-color: #2F2536;
-    background-image: url('https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-    background-position: center;
+    background-color: white;
+    background-image: url('https://www.freepik.com/free-vector/striped-pattern-background-simple-design-black-white-vector_19597412.htm#page=6&query=monochrome%20background&position=18&from_view=search');
+    /* background-position: center; */
     background-size: cover;
-    border-bottom: 4px solid white;
+    background-repeat: no-repeat;
+    border-bottom: 2px solid black;
     z-index: 1;
 }
 
@@ -95,7 +103,7 @@ main{
     margin: 1vw;
     font-size: calc(16px + .5vw);
     padding: 1vw;
-    color: white;
+    color: black;
     margin-top: 10vh;
 }
 
@@ -115,10 +123,10 @@ main{
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 60vh;
-    width: 90vw;
-    height: 100vh;
-    margin: 0 5vw 0 5vw;
+    top: 60.5vh;
+    width: 95vw;
+    height: 50vh;
+    margin: 0 2.5vw 0 2.5vw;
     background-color: transparent;
 }
 
@@ -128,29 +136,44 @@ main{
     font-weight: 800;
     font-style: oblique;
     border-radius: 5px;
+    color: white;
 }
 
 .buttons{
-    width: inherit;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
+    padding: 10px;
 }
 
 .button-style{
-    height: calc(50px + 8vw);
-    width: calc(50px + 8vw);
+    height: calc(50px + 4vw);
+    width: calc(55px + 8vw);
     margin: 15px auto;
-    background-color: transparent;
-    border: 4px solid black;
-    border-radius: 15px;
+    background-color:   transparent;
+    border: 4px solid white;
+    border-radius: 8px;
     transition-property: height, background-color, width, border;
     transition-duration: 0.5s;
-    box-shadow: 1.5px -1.5px 4px #666666;
+    color: white;
+    font-weight: bold;
 }
 
+.button-style> i{
+    font-size: calc(16px + 2.5vw);
+    padding: 5px;
+}
+
+.button-style > p{
+    text-align: center;
+    font-size: calc(12px );
+    padding: 5px;
+    width: fit-content;
+    margin: 0 auto 0 auto;
+}
 .about-us{
     width: inherit;
-    background-color: #CC99CC;
+    background-color: #c46a1c;
     height: inherit;
     border-radius: 10px 10px 0 0;
 }
@@ -158,19 +181,25 @@ main{
 .how-it-works{
     height: inherit;
     width: 95%;
-    background-color: black;
+    background-color: #3B3B3B;
     margin: 0 2.5% 0 2.5%;
-    border-top: #CC99CC 1px solid;
+
 }
 @media all and (max-width: 600px){
     main {
-        background-position-x: 1px;
-        background-size:cover;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     #tagline{
         width: 70%;
     }
+
+    /* #button{
+        flex-direction: column;
+        justify-content: space-around;
+    } */
+
 }
 
 
