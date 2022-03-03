@@ -237,10 +237,6 @@ main{
     text-decoration: underline;
 }
 
-#works-content > div:nth-child(2){
-    text-align: right;
-}
-
 #works-content > div:nth-child(3){
     align-self: flex-end;
 }
