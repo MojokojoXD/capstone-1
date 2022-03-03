@@ -3,7 +3,7 @@ const personal_buttons = document.querySelector('#personal')
 const info_bar = document.querySelector(".get-info-bar");
 const close_info = document.querySelector('.get-info-bar > button');
 const form = document.querySelector('.user-info');
-const info_div = document.createElement('div')
+const info_div = document.querySelector('.get-info-bar > div')
 
 //User input form creation
 const first_name = document.createElement(`input`);
@@ -11,7 +11,7 @@ const last_name = document.createElement('input');
 const email = document.createElement('input');
 const zipcode = document.createElement('input');
 const submit = document.createElement('input');
-
+const br = document.createElement('br');
 //labels for form
 const fname_label = document.createElement('label');
 const lname_label = document.createElement('label');
@@ -26,13 +26,11 @@ let userInfo = {
     last_name: "",
     loan_type: "",
     email: "",
-    zipcode: ""
+    zipcode: 00000
 }
 
 function init_form(event){
-    const section_div = document.createElement('div');
     event.preventDefault()
-
     
     //first name input element and label
     first_name.type = 'text';
@@ -52,10 +50,27 @@ function init_form(event){
 
 
     //Email input and label
-    email.type =
-    
+    email.type = 'email';
+    email.id = 'email';
+    email.name = 'email';
+    email.required = true;
+    email_label.for = 'email';
+    email_label.textContent = "Email:"
+
+    //Zipcode input and label
+    zipcode.type = 'number';
+    zipcode.id = 'zipcode';
+    zipcode.name = 'zipcode';
+    zipcode.min = 501;
+    zipcode.max = 99950;
+    zipcode.required = true;
+    zipcode_label.for = 'zipcode';
+    zipcode_label.textContent ="Zipcode: "
+
+
     submit.type = 'submit';
     submit.name = 'submit';
+    submit.id = 'submit'
     
 
     //added form onto main html elements
@@ -63,9 +78,13 @@ function init_form(event){
     form.appendChild(first_name);
     form.appendChild(lname_label);
     form.appendChild(last_name);
+    form.appendChild(email_label)
+    form.appendChild(email);
+    form.appendChild(zipcode_label);
+    form.appendChild(zipcode);
+    form.appendChild(br);
     form.appendChild(submit);
-    form.appendChild(section_div);
-    info_bar.appendChild(form);
+    info_div.appendChild(form);
     if(event.target.localName === "i" || event.target.localName ==='p'){
         userInfo.loan_type = event.target.parentElement.id;
     }
@@ -93,14 +112,21 @@ loan_buttons.forEach(button => {
         })
     
     button.addEventListener('click', (event) => {
+
         first_name.value = '';
         button.style.backgroundColor = "#D9A23D";
 
         setTimeout(() => {
             button.style.backgroundColor = "transparent";
         }, 500)
+        if(window.innerWidth > 600)
+        {
+            info_bar.style.left = "40vw";
+        }
+        else{
+            info_bar.style.left = "0vw"
+        }
         
-        info_bar.style.left = "30vw";
     })
 })
 
@@ -110,11 +136,26 @@ form.addEventListener('submit', (event) => {
     event.preventDefault()
             userInfo.first_name = first_name.value;
             userInfo.last_name = last_name.value;
-            axios.post('/api/firstname',userInfo).then(res => {
-                console.log(res.data);
-            }).catch(err => console.log('This error is: '));
-        
+            userInfo.email = email.value;
+            userInfo.zipcode = zipcode.value;
+            try{
+                if(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcode.value)){
+                    axios.post('/api/firstname',userInfo).then(res => {
+                        console.log(res.data);
+                        }).catch(err => console.log('This error is: '));
+                }
+                else{
+                    throw "Zipcode incorrect"
+                }
+             }catch(error){
+                    alert (console.log(error));
+             }
+           
+            email.value = '';
+            last_name.value = '';
+            zipcode.value = '';
             form.innerHTML = '';
+            info_bar.style.left = '-300vw'
 })
 
 close_info.addEventListener('click', () => {
@@ -122,3 +163,8 @@ close_info.addEventListener('click', () => {
     info_bar.style.left = '-300vw'
     form.innerHTML = "";
 })
+
+if (window.location.innerWidth < 600){
+
+    info_bar.style.left = '0vw'
+}
