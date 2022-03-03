@@ -172,7 +172,7 @@ main{
     background-color:   transparent;
     border: 4px solid black;
     border-radius: 8px;
-    transition: all 1s ease-in-out;
+    transition: all 0.1s ease-in-out;
     color: black;
     font-weight: bold;
 }
@@ -190,7 +190,7 @@ main{
     padding: 5px;
     width: fit-content;
     margin: 0 auto 0 auto;
-    transition: all 1s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
 .about-us{
     width: inherit;
@@ -201,7 +201,7 @@ main{
 }
 
 .how-it-works{
-    height: calc(450px);
+    height: calc(600px);
     width: 95%;
     background-color: #FC9D05;
     margin: 0 2.5% 0 2.5%;

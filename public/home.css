@@ -34,7 +34,7 @@ a{
 
 
 .contact-us{
-    border: none;
+    border: 1px solid white;
     background-color: black;
     color: white;
     font-size: .8em;
@@ -47,9 +47,9 @@ a{
 }
 
 .contact-us:hover{
-    background-color: #660066;
-    border: 2px solid #CC99CC;
-    color: white;
+    background-color: #FC9D05;
+    border: 2px solid #3B3B3B;
+    color: black;
     cursor: pointer;
     letter-spacing: 2.5px;
 }
