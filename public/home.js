@@ -29,5 +29,10 @@ button_div.addEventListener('mouseout', () => {
 })
 
 button_div.addEventListener('click', () => {
-    location.href = './main.html';
+    button_div.style.backgroundColor = '#D9A23D'
+
+    setTimeout(() => {
+        location.href = './main.html';
+    }, 400);
+    
 })

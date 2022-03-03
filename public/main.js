@@ -1,5 +1,79 @@
-const loan_buttons = document.querySelectorAll('.button-style')
-// const button = button_div.querySelectorAll('*')
+const loan_buttons = document.querySelectorAll('.button-style');
+const personal_buttons = document.querySelector('#personal')
+const info_bar = document.querySelector(".get-info-bar");
+const close_info = document.querySelector('.get-info-bar > button');
+const form = document.querySelector('.user-info');
+const info_div = document.createElement('div')
+
+//User input form creation
+const first_name = document.createElement(`input`);
+const last_name = document.createElement('input');
+const email = document.createElement('input');
+const zipcode = document.createElement('input');
+const submit = document.createElement('input');
+
+//labels for form
+const fname_label = document.createElement('label');
+const lname_label = document.createElement('label');
+const email_label = document.createElement('label');
+const zipcode_label = document.createElement('label');
+
+
+
+
+let userInfo = {
+    first_name: "",
+    last_name: "",
+    loan_type: "",
+    email: "",
+    zipcode: ""
+}
+
+function init_form(event){
+    const section_div = document.createElement('div');
+    event.preventDefault()
+
+    
+    //first name input element and label
+    first_name.type = 'text';
+    first_name.id = 'fname'
+    first_name.name = 'fname';
+    first_name.required = true;
+    fname_label.for = "fname";
+    fname_label.textContent = 'First name:';
+
+    //last name input element and label
+    last_name.type = 'text';
+    last_name.id = 'lname';
+    last_name.name ='lname';
+    last_name.required = true;
+    lname_label.for = 'lname';
+    lname_label.textContent = 'Last name:'
+
+
+    //Email input and label
+    email.type =
+    
+    submit.type = 'submit';
+    submit.name = 'submit';
+    
+
+    //added form onto main html elements
+    form.appendChild(fname_label);
+    form.appendChild(first_name);
+    form.appendChild(lname_label);
+    form.appendChild(last_name);
+    form.appendChild(submit);
+    form.appendChild(section_div);
+    info_bar.appendChild(form);
+    if(event.target.localName === "i" || event.target.localName ==='p'){
+        userInfo.loan_type = event.target.parentElement.id;
+    }
+    else{
+        userInfo.loan_type = event.target.id;
+    }
+}
+
 
 
 loan_buttons.forEach(button => {
@@ -17,23 +91,34 @@ loan_buttons.forEach(button => {
                 button.style.width = 'calc(65px + 8vw)'
             }
         })
+    
+    button.addEventListener('click', (event) => {
+        first_name.value = '';
+        button.style.backgroundColor = "#D9A23D";
+
+        setTimeout(() => {
+            button.style.backgroundColor = "transparent";
+        }, 500)
+        
+        info_bar.style.left = "30vw";
     })
+})
 
+personal_buttons.addEventListener('click',init_form)
 
-// button_div.addEventListener('mouseout', () => {
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
+            userInfo.first_name = first_name.value;
+            userInfo.last_name = last_name.value;
+            axios.post('/api/firstname',userInfo).then(res => {
+                console.log(res.data);
+            }).catch(err => console.log('This error is: '));
+        
+            form.innerHTML = '';
+})
 
-//     if (window.innerWidth > 600){
-//     button.forEach(element => {
-//         element.style.color = 'black';
-//         element.style.letterSpacing = '0px';
-//     })
-//     button[1].style.fontSize = '2.5vw';
-//     button_div.style.backgroundColor = 'transparent';
-//     button_div.style.boxShadow = '2.5px -2.5px 2.5px #c8c8c8';
-//     button_div.style.width = '8vw';
-// }
-// })
+close_info.addEventListener('click', () => {
 
-// button_div.addEventListener('click', () => {
-//     location.href = './main.html';
-// })
+    info_bar.style.left = '-300vw'
+    form.innerHTML = "";
+})

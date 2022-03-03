@@ -12,7 +12,7 @@ a{
 
 .nav-bar{
     display: flex;
-    position:fixed;
+    position: fixed;
     z-index: 2;
     background-color: black;
     width: 100%;
@@ -89,7 +89,7 @@ a{
     z-index: 2;
     width: 100%;
     background-color: black;
-    border-top: #CC99CC 2px solid;
+    border-top: #FC9D05 2px solid;
 }
 
 #tagline-button {
@@ -153,8 +153,8 @@ i{
         background-color: transparent;
         /* background-image: linear-gradient(#660066,#660066,#660066,#CC99CC); */
         box-shadow: 2px -2px 4px #666666;
-        border-left: 3px inset #CC99CC;
-        border-bottom: 1px outset #CC99CC;
+        border-left: 3px inset #FC9D05;
+        border-bottom: 1px outset #FC9D05;
         border-radius: 10px;
         transition-property: height,background-color;
         transition-duration: 0.5s;
@@ -167,12 +167,12 @@ i{
         font-weight: 600;
         border: none;
         background-color: transparent;
-        color: white;
+        color: #FC9D05;
         padding: 5px;
     }
 
     i{
-        color: #CC99CC;
+        color: #FC9D05;
         font-size: 30px;
         padding: 5px;
     }

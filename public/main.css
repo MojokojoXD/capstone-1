@@ -19,15 +19,36 @@ body{
 }
 
 
-.navbar{
+.get-info-bar{
     position:fixed;
-    left: 0;
-    background-color: black;
-    height: 100vh;
-    width: 50%;
+    top: 30vh;
+    left: -300vw;
+    background-color: #3B3B3B;
+    height: 15vh;
+    width: 20vw;
     z-index: 2;
-    margin-left: -50%;
+    border-radius: 5px;
+    /* margin-left: -10000px; */
+    transition-property: left;
+    transition-duration: 1s;
 }
+
+.get-info-bar > button{
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    right: 0;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    color: white;
+    left: 30px;
+}
+
 
 .perma-logo{
     position: fixed;
@@ -175,6 +196,7 @@ main{
     transition: all 0.1s ease-in-out;
     color: black;
     font-weight: bold;
+    z-index: 1;
 }
 
 .button-style> i{
@@ -251,6 +273,7 @@ footer{
     padding: 10px;
     color: white;
 }
+
 
 @media all and (max-width: 600px){
     main {
