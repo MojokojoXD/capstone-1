@@ -166,5 +166,5 @@ close_info.addEventListener('click', () => {
 
 if (window.location.innerWidth < 600){
 
-    info_bar.style.left = '0vw'
+    info_bar.style.left = '-300vw'
 }
