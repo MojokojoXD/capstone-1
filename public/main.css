@@ -12,10 +12,10 @@ a{
 
 body{
     height: 100vh;
-    /* min-height: 100%; */
-    background-color: black;
-    /* background-image: url('https://www.freepik.com/free-vector/black-wavy-shapes-background_12628437.htm#page=6&query=monochrome%20background&position=0&from_view=search');
-    background-size: cover; */
+    min-height: 100%;
+    background-color: white;
+    background-image: url('https://www.freepik.com/free-vector/black-wavy-shapes-background_12628437.htm#page=6&query=monochrome%20background&position=0&from_view=search');
+    background-size: cover;
 }
 
 
@@ -42,6 +42,7 @@ body{
     background-color: black;
     z-index: 2;
     border-bottom: 2px solid #FC9D05;
+    opacity: .9;
 }
 
 .perma-logo > a{
@@ -65,6 +66,7 @@ body{
     letter-spacing: 1px;
     transition-property: background-color,color,letter-spacing,border,padding;
     transition-duration: 0.5s;
+    border: 1px white solid;
 }
 
 .contact-us:hover{
@@ -78,18 +80,19 @@ body{
 
 main{
     display: flex;
-    position: absolute;
-    top: 10vh;
+    position: relative;
+    margin-top: 10vh;
     height: 50vh;
-    width: 100vw;
+    width: 100%;
     background-color: white;
     background-image: url('https://www.freepik.com/free-vector/striped-pattern-background-simple-design-black-white-vector_19597412.htm#page=6&query=monochrome%20background&position=18&from_view=search');
-    /* background-position: center; */
     background-size: cover;
     background-repeat: no-repeat;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
     z-index: 1;
     justify-content: space-evenly;
+    border-radius: 0 0 5px 5px;
+    opacity: 0.95;
 }
 
 
@@ -131,13 +134,18 @@ main{
 
 #loan-about-us{
     display: flex;
+    position: relative;
     flex-direction: column;
-    position: absolute;
-    top: 60.5vh;
     width: 95vw;
-    height: 50vh;
-    margin: 0 2.5vw 0 2.5vw;
-    background-color: transparent;
+    height: fit-content;
+    margin: 0 auto 0 auto;
+    background-color: white;
+    border-top: 10px #FC9D05 solid;
+    z-index: 1;
+    border-radius: 25px;
+    opacity: 0.95;
+    border-left: 1px solid #FC9D05;
+    border-right: 1px solid #FC9D05;
 }
 
 #loan-about-us > h1{
@@ -145,12 +153,13 @@ main{
     font-family: 'catamaran','verdana', sans-serif;
     font-weight: 800;
     font-style: oblique;
-    border-radius: 5px;
-    color: white;
+    color: black;
+    
 }
 
 .buttons{
     display: flex;
+    width: inherit;
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 10px;
@@ -161,18 +170,18 @@ main{
     width: calc(65px + 8vw);
     margin: 15px auto;
     background-color:   transparent;
-    border: 4px solid white;
+    border: 4px solid black;
     border-radius: 8px;
     transition: all 1s ease-in-out;
-    /* transition-property: height, background-color, width, border; */
-    /* transition-duration: 0.5s; */
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
 .button-style> i{
     font-size: calc(16px + 2.5vw);
     padding: 5px;
+    transition-property: font-size,padding;
+    transition-duration: 1s;
 }
 
 .button-style > p{
@@ -181,21 +190,72 @@ main{
     padding: 5px;
     width: fit-content;
     margin: 0 auto 0 auto;
+    transition: all 1s ease-in-out;
 }
 .about-us{
     width: inherit;
-    background-color: #c46a1c;
+    background-color: #FC9D05;
     height: inherit;
-    border-radius: 10px 10px 0 0;
+
+    /* border-radius: 10px 10px 0 0; */
 }
 
 .how-it-works{
-    height: inherit;
+    height: calc(450px);
     width: 95%;
-    background-color: #3B3B3B;
+    background-color: #FC9D05;
     margin: 0 2.5% 0 2.5%;
-
+    color: black;
 }
+
+#works-content{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px;
+    height: fit-content;
+}
+
+#works-content > h4{
+    width: 100%;
+    text-align: center;
+    line-height: 4vh;
+    font-size: calc(16px + 0.5vw);
+    font-weight: 400;
+}
+
+#works-content > div{
+    width: fit-content;
+    height: fit-content;
+    line-height: 2.5vh;
+    margin: 10px;
+}
+
+#works-content > div > h3{
+    text-decoration: underline;
+}
+
+#works-content > div:nth-child(2){
+    text-align: right;
+}
+
+#works-content > div:nth-child(3){
+    align-self: flex-end;
+}
+
+footer{
+    position: fixed;
+    top : 90vh;
+    height: 20vh;
+    width: 100%;
+    background-color: black;
+    z-index: 2;
+    padding: 10px;
+    color: white;
+}
+
 @media all and (max-width: 600px){
     main {
         background-size: cover;
@@ -206,11 +266,13 @@ main{
         width: 70%;
     }
 
-    /* #button{
-        flex-direction: column;
-        justify-content: space-around;
-    } */
+    #works-content > div:nth-child(3){
+        border-top: 2px white solid;
+    }
 
+    .buttons{
+        width: fit-content;
+    }
 }
 
 
