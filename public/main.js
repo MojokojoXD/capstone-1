@@ -1,5 +1,8 @@
 const loan_buttons = document.querySelectorAll('.button-style');
-const personal_buttons = document.querySelector('#personal')
+// const personal_buttons = document.querySelector('#personal')
+//test
+const personal_buttons1 = document.querySelectorAll('.buttons > button')
+
 const info_bar = document.querySelector(".get-info-bar");
 const close_info = document.querySelector('.get-info-bar > button');
 const form = document.querySelector('.user-info');
@@ -132,7 +135,11 @@ loan_buttons.forEach(button => {
     })
 })
 
-personal_buttons.addEventListener('click',init_form)
+// personal_buttons.addEventListener('click',init_form)
+
+personal_buttons1.forEach(button => {
+    button.addEventListener('click',init_form);
+})
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()
