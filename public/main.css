@@ -339,7 +339,7 @@ footer{
         top: 20vh;
         width: 95vw;
         height: 80vh;
-        left: 0;
+        left: -300vw;
     }
 
     .get-info-bar > div {
