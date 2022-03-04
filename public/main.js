@@ -126,6 +126,7 @@ loan_buttons.forEach(button => {
         else{
             info_bar.style.left = "0vw";
             info_bar.style.height = "100vh";
+            info_bar.style.top = '0'
         }
         
     })
