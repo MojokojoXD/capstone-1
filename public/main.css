@@ -335,9 +335,10 @@ footer{
     }
 
     .get-info-bar{
+        position: fixed;
         top: 20vh;
         width: 95vw;
-        height: 60vh;
+        height: 80vh;
         left: 0;
     }
 
