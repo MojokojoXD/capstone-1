@@ -13,6 +13,7 @@ a{
 body{
     height: 100vh;
     min-height: 100%;
+    width: 100%;
     background-color: white;
     background-image: url('https://www.freepik.com/free-vector/black-wavy-shapes-background_12628437.htm#page=6&query=monochrome%20background&position=0&from_view=search');
     background-size: cover;
@@ -24,15 +25,15 @@ body{
     display: flex;
     flex-direction: column;
     top: 28vh;
-    left: -300vw;
+    left: -300000px;
     background-color: black;
     border-left: #FC9D05 2px solid;
     border-bottom: #FC9D05 2px solid;
     border-top: white 1px solid;
     border-right: white 1px solid;
-    height: 40vh;
-    width: 20vw;
-    z-index: 2;
+    height: 45vh;
+    width: 35vw;
+    z-index: 3;
     border-radius: 10px;
     /* margin-left: -10000px; */
     transition-property: left;
@@ -315,6 +316,47 @@ footer{
     color: white;
 }
 
+#bank-info{
+    display:flex;
+    justify-content: space-around;
+    align-content: space-between;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 5vh;
+    left: -10000px;
+    height: 80vh;
+    width: 100vw;
+    background-color: transparent;
+    z-index: 2;
+    color: white;
+}
+
+#bank-info > div{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    justify-content: space-between;
+    padding: 5px;
+    width: 25vw;
+    height: 25vh;
+}
+
+#bank-info > div  > h3 , p{
+    text-align: center;
+}
+
+#bank-info > div > div{
+    height: 100px;
+    width: fit-content;
+    align-self: center;
+}
+
+.bank-image{
+    clip:shape;
+    height: 100px;
+    width: 10vw;
+}
 
 @media all and (max-width: 600px){
     main {
@@ -335,14 +377,9 @@ footer{
     }
 
     .get-info-bar{
-        position: fixed;
-        top: 20vh;
-        width: 100vw;
-        height: 80vh;
-        left: -300vw;
-        opacity: 1;
-        box-shadow: 0;
-        border: none;
+        top:10vh;
+        height: 100vh;
+        width: 100%;
     }
 
     .get-info-bar > div {
@@ -353,6 +390,28 @@ footer{
     form{
         height: 100vh;
     }
+
+    #bank-info{
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        height: 40vh;
+        width: 100%;
+        top: 10vh;
+        overflow-x: scroll;
+    }
+
+    #bank-info > div{
+        margin: 25px;
+        width: 100vw;
+    }
+
+
+    .bank-image{
+        clip:shape;
+        height: 100px;
+        width: 30vw;
+    }
 }
+
 
 
