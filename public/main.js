@@ -167,7 +167,7 @@ form.addEventListener('submit', (event) => {
             userInfo.phone_number = phone_number.value;
             try{
                 if(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcode.value)){
-                    axios.post('/api/firstname',userInfo).then(res => {
+                    axios.post('/api/testEndpoint',userInfo).then(res => {
                         bankCards(res.data);
                         }).catch(err => console.log('This error is:', err));
                 }

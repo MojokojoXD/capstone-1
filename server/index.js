@@ -14,7 +14,7 @@ app.get('/', (req,res) => {
 })
 app.use(express.static(path.join(__dirname,'../public')));
 
-app.post('/api/firstname', controller.storeClient);
+app.post('/api/testEndpoint', controller.storeClient);
 app.get('/api/seed', seedPath.seed);
 app.get('/api/seedBank', seedPath.seedBanks);
 
