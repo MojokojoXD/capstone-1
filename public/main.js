@@ -84,7 +84,7 @@ function init_form(event){
     phone_number.type = 'tel';
     phone_number.id = 'phone';
     phone_number.name = 'phone';
-    phone_number.placeholder = '123-456-7890';
+    phone_number.placeholder = '1234567890';
     phone_number.pattern = '[0-9]{3}[0-9]{3}[0-9]{4}';
     phone_number.required = true;
     phone_label.for = 'phone';
