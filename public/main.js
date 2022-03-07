@@ -4,7 +4,7 @@ const bank_bar = document.querySelector('#bank-info');
 const info_bar = document.querySelector(".get-info-bar");
 const close_info = document.querySelector('.get-info-bar > button');
 const form = document.querySelector('.user-info');
-const info_div = document.querySelector('.get-info-bar > div');
+const info_div = document.querySelector('#form');
 
 
 
@@ -51,10 +51,17 @@ const blur = (toggle,element_except) => {
     }
 }
 
+
+// Initialize each loan option with the necessary form.(A this stage in the project each form in not unique)
 function init_form(event){
     event.preventDefault()
     blur(true,'body > *:not(.get-info-bar)');
     document.body.style.overflowY = 'hidden';
+    info_div.style.display = 'none';
+    document.querySelector('.begin-button').addEventListener('click', () => {
+       document.querySelector('#instructions').style.display = 'none';
+       info_div.style.display = 'block';
+    })
     //first name input element and label
     first_name.type = 'text';
     first_name.id = 'fname'
@@ -121,7 +128,7 @@ function init_form(event){
     form.appendChild(br);
     form.appendChild(submit);
     info_div.appendChild(form);
-
+    
     //Send div id irrespective of click location in button div
     if(event.target.localName === "i" || event.target.localName ==='p'){
         userInfo.loan_type = event.target.parentElement.id;
@@ -164,9 +171,10 @@ loan_buttons.forEach(button => {
         else{
             info_bar.style.left = "0px";
         }
-        
-    })
 })
+
+})
+
 
 // Initiaize form on click on loan type
 
@@ -251,6 +259,7 @@ function bankCards(bankObj){
                 document.querySelector('#bank-info').style.left = '-10000px'
                 blur(false,'body > *');
                 document.body.style.overflowY = 'scroll';
+                document.querySelector('#instructions').style.display = 'flex'
             }
             
         })
@@ -263,4 +272,5 @@ close_info.addEventListener('click', () => {
     info_bar.style.left = '-300vw'
     form.innerHTML = "";
     phone_number.value = '';
+    document.querySelector('#instructions').style.display = 'flex'
 })
