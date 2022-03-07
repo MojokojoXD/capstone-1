@@ -424,9 +424,8 @@ footer{
         flex-direction: column;
         justify-content: space-between;
         height: 80vh;
-        width: 100%;
+        width: fit-content;
         top: 10vh;
-        overflow-x: 'hidden';
         overflow-y: scroll;
     }
 
