@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     font-family: 'lato','verdana', sans-serif;
+    transition-property: filter;
+    transition-duration: 1s;
 }
 
 a{
@@ -329,21 +331,28 @@ footer{
     background-color: transparent;
     z-index: 2;
     color: white;
+    transition-property: left,justify-content,align-content;
+    transition-duration: 1s;
 }
 
 #bank-info > div{ 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: black;
+    background-color: #3B3B3B;
+    border: 1px solid black;
     justify-content: space-between;
     padding: 5px;
     width: 25vw;
     height: 25vh;
+    border-radius: 20px;
+    color: white;
+    opacity: 0.99;
 }
 
 #bank-info > div  > h3 , p{
     text-align: center;
+    font-size: calc(16px + .3vw);
 }
 
 #bank-info > div > div{
@@ -356,6 +365,17 @@ footer{
     clip:shape;
     height: 100px;
     width: 10vw;
+    border-radius: 20px;
+}
+
+.card-close{
+    font-weight: bold;
+    font-size: 1em;
+    background-color: black;
+    color: white;
+    width: 20px;
+    height: fit-content;
+    border-radius: 5px;
 }
 
 @media all and (max-width: 600px){
@@ -380,11 +400,18 @@ footer{
         top:10vh;
         height: 100vh;
         width: 100%;
+        opacity: 1;
+        border:none;
+        border-radius: 0;
     }
 
     .get-info-bar > div {
-        width: inherit;
+        width: 80%;
         height: inherit;
+    }
+
+    .get-info-bar > button {
+        margin-right: 10vw;
     }
 
     form{
@@ -411,6 +438,8 @@ footer{
         height: 100px;
         width: 30vw;
     }
+
+    
 }
 
 

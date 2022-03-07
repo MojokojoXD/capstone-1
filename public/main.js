@@ -1,12 +1,12 @@
 const loan_buttons = document.querySelectorAll('.button-style');
-// const personal_buttons = document.querySelector('#personal')
-//test
-const personal_buttons1 = document.querySelectorAll('.buttons > button')
+const loan_options = document.querySelectorAll('.buttons > button')
 const bank_bar = document.querySelector('#bank-info');
 const info_bar = document.querySelector(".get-info-bar");
 const close_info = document.querySelector('.get-info-bar > button');
 const form = document.querySelector('.user-info');
-const info_div = document.querySelector('.get-info-bar > div')
+const info_div = document.querySelector('.get-info-bar > div');
+
+
 
 //User input form creation
 const first_name = document.createElement(`input`);
@@ -26,7 +26,7 @@ const phone_label = document.createElement('label');
 
 
 
-
+//Body to be sent to server
 let userInfo = {
     first_name: "",
     last_name: "",
@@ -36,8 +36,24 @@ let userInfo = {
     zipcode: 00000
 }
 
+//blur everything except-----------Parameter(boolean, element to leave out)
+const blur = (toggle,element_except) => {
+    let blur_elements = document.querySelectorAll(`${element_except}`)
+    if(toggle){
+        for(let i = 0; i < blur_elements.length; i++){
+             blur_elements[i].style.filter = 'blur(5px)'
+        }
+    }
+    else{
+        for(let i = 0; i < blur_elements.length; i++){
+            blur_elements[i].style.filter = 'blur(0px)'
+       }
+    }
+}
+
 function init_form(event){
     event.preventDefault()
+    blur(true,'body > *:not(.get-info-bar)');
     
     //first name input element and label
     first_name.type = 'text';
@@ -69,7 +85,7 @@ function init_form(event){
     phone_number.id = 'phone';
     phone_number.name = 'phone';
     phone_number.placeholder = '123-456-7890';
-    phone_number.pattern = '[0-9]{3}-[0-9]{3}-[0-9]{4}';
+    phone_number.pattern = '[0-9]{3}[0-9]{3}[0-9]{4}';
     phone_number.required = true;
     phone_label.for = 'phone';
     phone_label.textContent = "Phone number:"
@@ -154,12 +170,13 @@ loan_buttons.forEach(button => {
 
 // personal_buttons.addEventListener('click',init_form)
 
-personal_buttons1.forEach(button => {
+loan_options.forEach(button => {
     button.addEventListener('click',init_form);
 })
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()
+            
             userInfo.first_name = first_name.value;
             userInfo.last_name = last_name.value;
             userInfo.email = email.value;
@@ -168,6 +185,8 @@ form.addEventListener('submit', (event) => {
             try{
                 if(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcode.value)){
                     axios.post('/api/testEndpoint',userInfo).then(res => {
+
+                        blur();
                         bankCards(res.data);
                         }).catch(err => console.log('This error is:', err));
                 }
@@ -181,6 +200,7 @@ form.addEventListener('submit', (event) => {
             email.value = '';
             last_name.value = '';
             zipcode.value = '';
+            phone_number.value = '';
             form.innerHTML = '';
             info_bar.style.left = '-300vw'
 })
@@ -188,6 +208,8 @@ form.addEventListener('submit', (event) => {
 
 function bankCards(bankObj){
     bank_bar.style.left = '0';
+    blur(false,'body > *')
+    blur(true,'body > *:not(#bank-info)')
     bankObj.forEach(bank => {
         ///Bank card info creation
         const banks_div = document.createElement('div');
@@ -196,7 +218,8 @@ function bankCards(bankObj){
         const rep_name = document.createElement('p');
         const ranking = document.createElement('p');
         const rep_phone = document.createElement('p');
-        const bank_img = document.createElement('img')
+        const bank_img = document.createElement('img');
+        const card_close = document.createElement('button');
 
         //info addition
         bank_name.textContent = `${bank.bank_name}`;
@@ -205,10 +228,12 @@ function bankCards(bankObj){
         rep_phone.textContent = `Phone Number: ${bank.rep_num}`;
         bank_img.src = `${bank.img_url}`;
         bank_img.alt = 'Bank Image';
-        bank_img.className = 'bank-image'
+        bank_img.className = 'bank-image';
+        card_close.innerHTML = '&times;';
+        card_close.className = 'card-close'
 
         //Add card to main page
-
+        banks_div.appendChild(card_close);
         banks_div.appendChild(bank_name);
         banks_div.appendChild(rep_name);
         banks_div.appendChild(ranking);
@@ -217,10 +242,22 @@ function bankCards(bankObj){
         banks_div.appendChild(img_div);
         bank_bar.appendChild(banks_div);
     })
+    
+    document.querySelectorAll('.card-close').forEach(close => {
+        close.addEventListener('click', (event) => {
+            document.querySelector('#bank-info').removeChild(event.target.parentNode)
+            if(document.querySelectorAll('#bank-info > div').length === 0){
+                document.querySelector('#bank-info').style.left = '-10000px'
+                blur(false,'body > *');
+            }
+            
+        })
+    })
 }
 
 close_info.addEventListener('click', () => {
-
+    blur(false,'body > *:not(.get-info-bar)');
     info_bar.style.left = '-300vw'
     form.innerHTML = "";
+    phone_number.value = '';
 })
