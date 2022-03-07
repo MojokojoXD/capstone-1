@@ -421,16 +421,18 @@ footer{
 
     #bank-info{
         flex-wrap: nowrap;
+        flex-direction: column;
         justify-content: space-between;
-        height: 40vh;
+        height: 80vh;
         width: 100%;
         top: 10vh;
-        overflow-x: scroll;
+        overflow-x: 'hidden';
+        overflow-y: scroll;
     }
 
     #bank-info > div{
-        margin: 25px;
-        width: 100vw;
+        margin: 15px;
+        width: 90vw;
     }
 
 

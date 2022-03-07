@@ -54,7 +54,7 @@ const blur = (toggle,element_except) => {
 function init_form(event){
     event.preventDefault()
     blur(true,'body > *:not(.get-info-bar)');
-    
+    document.body.style.overflowY = 'hidden';
     //first name input element and label
     first_name.type = 'text';
     first_name.id = 'fname'
@@ -168,7 +168,7 @@ loan_buttons.forEach(button => {
     })
 })
 
-// personal_buttons.addEventListener('click',init_form)
+// Initiaize form on click on loan type
 
 loan_options.forEach(button => {
     button.addEventListener('click',init_form);
@@ -210,6 +210,7 @@ function bankCards(bankObj){
     bank_bar.style.left = '0';
     blur(false,'body > *')
     blur(true,'body > *:not(#bank-info)')
+    document.body.style.overflowY = 'hidden'
     bankObj.forEach(bank => {
         ///Bank card info creation
         const banks_div = document.createElement('div');
@@ -249,6 +250,7 @@ function bankCards(bankObj){
             if(document.querySelectorAll('#bank-info > div').length === 0){
                 document.querySelector('#bank-info').style.left = '-10000px'
                 blur(false,'body > *');
+                document.body.style.overflowY = 'scroll';
             }
             
         })
@@ -257,6 +259,7 @@ function bankCards(bankObj){
 
 close_info.addEventListener('click', () => {
     blur(false,'body > *:not(.get-info-bar)');
+    document.body.style.overflowY = 'scroll';
     info_bar.style.left = '-300vw'
     form.innerHTML = "";
     phone_number.value = '';
