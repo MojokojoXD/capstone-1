@@ -401,6 +401,7 @@ footer{
     border-radius: 0 5px 5px 0;
     color: black;
     align-items: center;
+    border: none;
 }
 
 #instructions > div > h1{
@@ -411,13 +412,30 @@ footer{
     text-align: center;
     color: white;
     font-weight: bold;
-    height: inherit
+    height: inherit;
 }
 
 #instructions > div > p {
     font-size: 16px;
     text-align: center;
     width: 80%;
+    padding: 5px;
+}
+
+#instructions > button {
+    width: fit-content;
+    height: 1.5em;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 2px;
+    align-self: center;
+    border-radius: 5px;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    border-top: none;
+    border-right: none;
+    background-color: #FC9D05;
+    color: white;
 }
 
 @media all and (max-width: 600px){
