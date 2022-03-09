@@ -166,7 +166,7 @@ loan_buttons.forEach(button => {
         }, 500)
         if(window.innerWidth > 600)
         {
-            info_bar.style.left = "36vw";
+            info_bar.style.left = "32.5vw";
         }
         else{
             info_bar.style.left = "0px";
