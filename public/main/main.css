@@ -202,7 +202,7 @@ main{
     position: relative;
     flex-direction: column;
     width: 95vw;
-    height: 100%;
+    height: fit-content;
     margin: 0 auto 0 auto;
     background-color: white;
     border-top: 10px #FC9D05 solid;
@@ -268,7 +268,7 @@ main{
 }
 
 .how-it-works{
-    height: calc(600px);
+    height: fit-content
     width: 95%;
     background-color: #FC9D05;
     margin: 0 2.5% 0 2.5%;
@@ -295,7 +295,7 @@ main{
 
 #works-content > div{
     width: fit-content;
-    height: inherit;
+    height: fit-content;
     line-height: 2.5vh;
     margin: 10px;
     font-size: 1.2em;
@@ -312,8 +312,8 @@ main{
 }
 
 footer{
-    position: fixed;
-    top : 90vh;
+    position: relative;
+    /* top : 90vh; */
     height: 20vh;
     width: 100%;
     background-color: black;
