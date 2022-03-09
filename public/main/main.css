@@ -313,9 +313,7 @@ main{
 
 footer{
     position: relative;
-    /* top : 90vh; */
     height: 20vh;
-    width: 100%;
     background-color: black;
     z-index: 2;
     padding: 10px;
@@ -504,7 +502,6 @@ footer{
         width: 30vw;
     }
 
-    
 }
 
 
