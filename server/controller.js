@@ -53,7 +53,19 @@ const sequelize = new Sequelize(process.env.CONNECTION_STRING,{
 
     rep_client_rm: (req,res) => {
         sequelize.query(`
-        
-        `)
+        DELETE FROM client_rep
+        WHERE EXISTS(
+                        SELECT 1
+                        FROM bank_rep
+                        JOIN banks
+                        ON banks.bank_id = bank_rep.bank_id
+                        JOIN client
+                        on client.client_id = client_rep.client_id
+                        WHERE bank_rep.bank_rep_id = client_rep.bank_rep_id
+                        AND bank_name = '${req.query.bank}' AND email = '${req.query.email}'
+);
+        `).then(dbres => {
+            res.sendStatus(202);
+        }).catch(err => console.log(err));
     }
   }

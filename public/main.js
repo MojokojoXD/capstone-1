@@ -221,7 +221,7 @@ function bank_checkbox(event){
         }).catch(err => console.log(err));
     }
     else{
-        axios.delete(`/api/bank_trace/${event.target.value}`).then(res => {
+        axios.delete(`/api/bank_trace?bank=${event.target.value}&email=${userInfo.email}`).then(res => {
             console.log(res.data);
         }).catch(err => console.log(err));
     }

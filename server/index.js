@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname,'../public')));
 
 app.post('/api/client', controller.storeClient);
 app.put('/api/client_rep/:user_email', controller.clientRep_populate);
-app.delete('/api/bank_trace/:bank_rep',controller.rep_client_rm);
+app.delete('/api/bank_trace',controller.rep_client_rm);
 
 app.get('/api/seed', seedPath.seed);
 app.get('/api/seedBank', seedPath.seedBanks);
