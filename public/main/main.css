@@ -295,7 +295,7 @@ main{
 
 #works-content > div{
     width: fit-content;
-    height: fit-content;
+    height: inherit;
     line-height: 2.5vh;
     margin: 10px;
     font-size: 1.2em;
