@@ -32,7 +32,7 @@ button_div.addEventListener('click', () => {
     button_div.style.backgroundColor = '#D9A23D'
 
     setTimeout(() => {
-        location.href = './main.html';
+        location.href = 'main.html';
     }, 400);
     
 })

@@ -10,9 +10,10 @@ app.use(express.json());
 
 
 app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname,'../public/home.html'))
+    res.sendFile(path.join(__dirname,'../public/home/home.html'))
 })
-app.use(express.static(path.join(__dirname,'../public')));
+app.use(express.static(path.join(__dirname, '../public/home')));
+app.use(express.static(path.join(__dirname, '../public/main')));
 
 app.post('/api/client', controller.storeClient);
 app.put('/api/client_rep/:user_email', controller.clientRep_populate);
