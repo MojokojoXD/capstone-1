@@ -304,3 +304,12 @@ close_info.addEventListener('click', () => {
 })
 
 
+document.addEventListener('backbutton', () => {
+    blur(false,'body > *:not(.get-info-bar)');
+    document.body.style.overflowY = 'scroll';
+    info_bar.style.left = '-300vw'
+    form.innerHTML = "";
+    phone_number.value = '';
+    document.querySelector('#instructions').style.display = 'flex'
+})
+
