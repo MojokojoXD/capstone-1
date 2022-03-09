@@ -290,26 +290,21 @@ function bankCards(bankObj){
     })
 
     document.querySelectorAll('#bank-select').forEach(checkbox => {
-       checkbox.addEventListener('click', bank_checkbox)
+       checkbox.addEventListener('click', bank_checkbox);
     })
 }
 
 close_info.addEventListener('click', () => {
     blur(false,'body > *:not(.get-info-bar)');
     document.body.style.overflowY = 'scroll';
-    info_bar.style.left = '-300vw'
+    info_bar.style.left = '-300vw';
     form.innerHTML = "";
     phone_number.value = '';
-    document.querySelector('#instructions').style.display = 'flex'
+    document.querySelector('#instructions').style.display = 'flex';
 })
 
 
-document.addEventListener('backbutton', () => {
-    blur(false,'body > *:not(.get-info-bar)');
-    document.body.style.overflowY = 'scroll';
-    info_bar.style.left = '-300vw'
-    form.innerHTML = "";
-    phone_number.value = '';
-    document.querySelector('#instructions').style.display = 'flex'
+document.querySelector('.contact-us').addEventListener('click', () => {
+    location.href = '#contacts';
 })
 

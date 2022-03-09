@@ -313,11 +313,26 @@ main{
 
 footer{
     position: relative;
-    height: 20vh;
+    display: flex;
+    height: 10vh;
     background-color: black;
     z-index: 2;
     padding: 10px;
     color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+footer > div{
+    margin: 5px;
+    width: 50%;
+}
+footer > div:nth-child(1) {
+    border-right: #FC9D05 1px solid;
+}
+
+footer > div:nth-child(2){
+    line-height: 20px;
 }
 
 #bank-info{

@@ -36,3 +36,15 @@ button_div.addEventListener('click', () => {
     }, 400);
     
 })
+
+document.querySelector('.contact-us').addEventListener('click', () => {
+    location.href = '#contacts'
+    document.querySelector('#contacts').style.color = 'black';
+    document.querySelector('#contacts').style.borderRadius = '5px';
+    document.querySelector('#contacts').style.backgroundColor = '#FC9D05';
+
+    setTimeout(() => {
+        document.querySelector('#contacts').style.color = 'white';
+        document.querySelector('#contacts').style.backgroundColor = 'black';
+    }, 200)
+})
