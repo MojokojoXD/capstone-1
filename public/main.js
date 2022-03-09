@@ -192,7 +192,7 @@ form.addEventListener('submit', (event) => {
             userInfo.phone_number = phone_number.value;
             try{
                 if(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcode.value)){
-                    axios.post('/api/testEndpoint',userInfo).then(res => {
+                    axios.post('/api/client',userInfo).then(res => {
 
                         blur();
                         bankCards(res.data);
@@ -213,7 +213,19 @@ form.addEventListener('submit', (event) => {
             info_bar.style.left = '-300vw'
 })
 
+function bank_checkbox(event){
 
+    if(event.target.checked){
+        axios.put(`/api/client_rep/${userInfo.email}`,{bank_name: event.target.value}).then(res => {
+            console.log(res.data);
+        }).catch(err => console.log(err));
+    }
+    else{
+        axios.delete(`/api/bank_trace/${event.target.value}`).then(res => {
+            console.log(res.data);
+        }).catch(err => console.log(err));
+    }
+}
 function bankCards(bankObj){
     bank_bar.style.left = '0';
     blur(false,'body > *')
@@ -229,6 +241,8 @@ function bankCards(bankObj){
         const rep_phone = document.createElement('p');
         const bank_img = document.createElement('img');
         const card_close = document.createElement('button');
+        const check_box = document.createElement('input');
+        const checkbox_label = document.createElement('label');
 
         //info addition
         bank_name.textContent = `${bank.bank_name}`;
@@ -239,7 +253,15 @@ function bankCards(bankObj){
         bank_img.alt = 'Bank Image';
         bank_img.className = 'bank-image';
         card_close.innerHTML = '&times;';
-        card_close.className = 'card-close'
+        card_close.className = 'card-close';
+
+        //Checkbox configuration
+        check_box.type = 'checkbox';
+        check_box.id = 'bank-select';
+        check_box.name = 'bank-select';
+        check_box.value = `${bank.bank_name}`;
+        checkbox_label.for = 'bank-select';
+        checkbox_label.textContent = 'Select';
 
         //Add card to main page
         banks_div.appendChild(card_close);
@@ -248,6 +270,8 @@ function bankCards(bankObj){
         banks_div.appendChild(ranking);
         banks_div.appendChild(rep_phone);
         img_div.appendChild(bank_img);
+        img_div.appendChild(checkbox_label);
+        img_div.appendChild(check_box);
         banks_div.appendChild(img_div);
         bank_bar.appendChild(banks_div);
     })
@@ -264,6 +288,10 @@ function bankCards(bankObj){
             
         })
     })
+
+    document.querySelectorAll('#bank-select').forEach(checkbox => {
+       checkbox.addEventListener('click', bank_checkbox)
+    })
 }
 
 close_info.addEventListener('click', () => {
@@ -274,3 +302,5 @@ close_info.addEventListener('click', () => {
     phone_number.value = '';
     document.querySelector('#instructions').style.display = 'flex'
 })
+
+

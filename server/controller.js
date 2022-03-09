@@ -33,5 +33,27 @@ const sequelize = new Sequelize(process.env.CONNECTION_STRING,{
         `).then(dbres => {
             res.status(200).send(dbres[0]);
         }).catch(err => console.log(err));
+    },
+
+    clientRep_populate: (req,res) => {
+
+        sequelize.query(`
+        INSERT INTO client_rep(client_id, bank_rep_id)
+        SELECT client_id, bank_rep_id
+        FROM client, bank_rep
+        JOIN banks
+        ON banks.bank_id = bank_rep.bank_id
+        WHERE email = '${req.params.user_email}' AND bank_name = '${req.body.bank_name}';
+
+        `).then(dbres => {
+            res.sendStatus(202);
+        }).catch(err => console.log(err))
+
+    },
+
+    rep_client_rm: (req,res) => {
+        sequelize.query(`
+        
+        `)
     }
   }

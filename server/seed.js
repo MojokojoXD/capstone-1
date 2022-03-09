@@ -50,6 +50,14 @@ const sequelize = new Sequelize(process.env.CONNECTION_STRING,{
                                ranking FLOAT
                            );
 
+                           CREATE TABLE client_rep(
+                               client_rep SERIAL PRIMARY KEY,
+                               client_id INT NOT NULL REFERENCES clients(client_id),
+                               bank_rep_id INT NOT NULL REFERENCES bank_rep(bank_rep_id),
+                               comments VARCHAR(200),
+                               retained BOOLEAN
+                           );
+
                            `).then(dbres => {
                                res.status(200).send('done');
                            }).catch(err => console.log(err));
