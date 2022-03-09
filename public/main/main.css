@@ -202,7 +202,7 @@ main{
     position: relative;
     flex-direction: column;
     width: 95vw;
-    height: fit-content;
+    height: 100%;
     margin: 0 auto 0 auto;
     background-color: white;
     border-top: 10px #FC9D05 solid;
