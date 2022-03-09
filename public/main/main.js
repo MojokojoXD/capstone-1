@@ -143,6 +143,7 @@ function init_form(event){
 loan_buttons.forEach(button => {
     button.addEventListener('mouseover', () => {
         if(window.innerWidth > 600){
+                button.style.backgroundImage = 'none';
                 button.style.backgroundColor = "#FC9D05";
                 button.style.letterSpacing = '2.5px';
                 button.style.width = 'calc(65px + 9vw)';
@@ -150,6 +151,7 @@ loan_buttons.forEach(button => {
         })
     button.addEventListener('mouseout', () => {
         if(window.innerWidth > 600){
+                button.style.backgroundImage = 'linear-gradient(grey,white)';
                 button.style.backgroundColor = "transparent";
                 button.style.letterSpacing = '0px';
                 button.style.width = 'calc(65px + 8vw)'
@@ -159,10 +161,12 @@ loan_buttons.forEach(button => {
     button.addEventListener('click', (event) => {
 
         first_name.value = '';
+        button.style.backgroundImage = 'none';
         button.style.backgroundColor = "#D9A23D";
 
         setTimeout(() => {
             button.style.backgroundColor = "transparent";
+            button.style.backgroundImage = 'linear-gradient(grey,white)';
         }, 500)
         if(window.innerWidth > 600)
         {
