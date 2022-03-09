@@ -151,7 +151,7 @@ loan_buttons.forEach(button => {
         })
     button.addEventListener('mouseout', () => {
         if(window.innerWidth > 600){
-                button.style.backgroundImage = 'linear-gradient(grey,white)';
+                button.style.backgroundImage = 'linear-gradient(grey,white,white)';
                 button.style.backgroundColor = "transparent";
                 button.style.letterSpacing = '0px';
                 button.style.width = 'calc(65px + 8vw)'
@@ -166,7 +166,7 @@ loan_buttons.forEach(button => {
 
         setTimeout(() => {
             button.style.backgroundColor = "transparent";
-            button.style.backgroundImage = 'linear-gradient(grey,white)';
+            button.style.backgroundImage = 'linear-gradient(grey,white,white)';
         }, 500)
         if(window.innerWidth > 600)
         {
