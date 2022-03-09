@@ -268,7 +268,7 @@ main{
 }
 
 .how-it-works{
-    height: fit-content
+    height: fit-content;
     width: 95%;
     background-color: #FC9D05;
     margin: 0 2.5% 0 2.5%;
